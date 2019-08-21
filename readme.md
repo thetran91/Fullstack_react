@@ -9,4 +9,7 @@
   Cau hinh Google Oauth Api tree google console api
   http://localhost:5000/demo
   Client ID
-  Client Secrete: luu tron config/keys (Bai 19,20...)
+  Client Secrete: luu tron config/keys (Bai 19,20...25)
+- Cai dat nodemon thiet lap script, run npm run dev
+- Tach file tu idex.js --> passport.js, authRoutes.js (bai 29)
+- Truyen app tu idex sang authRoutes (cha sang con) (bai 29)
