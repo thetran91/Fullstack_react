@@ -11,5 +11,5 @@
   Client ID
   Client Secrete: luu tron config/keys (Bai 19,20...25)
 - Cai dat nodemon thiet lap script, run npm run dev
-- Tach file tu idex.js --> passport.js, authRoutes.js (bai 29)
-- Truyen app tu idex sang authRoutes (cha sang con) (bai 29)
+- Tach file tu idex.js --> passport.js, authRoutes.js (bai 28)
+- Truyen app tu idex sang authRoutes (cha sang con) (bai 28)
