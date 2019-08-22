@@ -10,4 +10,14 @@ module.exports = app => {
     })
   );
   app.get('/auth/google/callback', passport.authenticate('google'));
+  /* Tat cookie id */
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    res.send(req.user);
+  });
+  /* Figure 15 and this route the hien luong du lieu tu req cho den khi tra ve req.user */
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+    // res.send(req.session);
+  });
 };
