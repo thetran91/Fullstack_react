@@ -25,7 +25,9 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       /* URL The route user wiil be sent to after they allow login thier email */
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback',
+      /* Tu dieu huong http vs https */
+      Proxy: true
     },
     /* Tra ve token cua user sau khi dang nhap */
     (accessToken, refreshToken, profile, done) => {

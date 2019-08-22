@@ -39,3 +39,5 @@
   UPQ6swf7ey_RQ8nTv-X-MFqn
 - Tao them prod.js va thiet lap dieu kien trong keys.js cho dev vs prod
 - Thiet lap keys cho deploy tren heroku evening brushland
+- push heroku va new branch github
+- Loi mo la do khac nhau giua https vs http, thiet lap proxy:true trong passport.js
