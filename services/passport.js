@@ -30,21 +30,19 @@ passport.use(
       proxy: true
     },
     /* Tra ve token cua user sau khi dang nhap */
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       /* Kiem tra id da ton tai trong database hay chua */
-      User.findOne({ googleID: profile.id }).then(existingUser => {
-        if (existingUser) {
-          /* This user id is already created in db */
-          /* null la khong co loi gi, tra ve existingUser */
-          done(null, existingUser);
-        } else {
-          /* Create new id in database for this id */
-          new User({ googleID: profile.id })
-            .save()
-            .then(user => done(null, user));
-        }
-      });
-      /* Tao user moi voi thong tin tra ve tu profile la id sau do dung fuction save()de chuyen data den mongo database*/
+      const existingUser = await User.findOne({ googleID: profile.id });
+
+      if (existingUser) {
+        /* This user id is already created in db */
+        /* null la khong co loi gi, tra ve existingUser */
+        return done(null, existingUser);
+      }
+      /* Create new id in database for this id */
+      const user = await new User({ googleID: profile.id }).save();
+      done(null, user);
     }
+    /* Tao user moi voi thong tin tra ve tu profile la id sau do dung fuction save()de chuyen data den mongo database*/
   )
 );

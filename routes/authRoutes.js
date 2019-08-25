@@ -9,11 +9,17 @@ module.exports = app => {
       /* Scope: thong bao google biet chung ta muon lay thong tin gi, google co nhieu thuoc tinh khac ngoai 2 thuoc tinh tren */
     })
   );
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
   /* Tat cookie id */
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
   /* Figure 15 and this route the hien luong du lieu tu req cho den khi tra ve req.user */
   app.get('/api/current_user', (req, res) => {
