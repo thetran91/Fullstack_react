@@ -95,4 +95,29 @@
 - (84) Thiet lap logout route, cai duong link api cho button logout trong header, thiet lap dieu huong cho api/logout trong authRoutes ve trang chu
 - (85) Tao Landing component, vao import vao trong App.js
 - (86) Su dung Link cua React thay cho the a, Link chuyen sang component khac chu khong tai lai toan bo html nhu a, thuoc tinh dieu huong cua Link la to={}, su dung dieu kien ? : de kiem tra this.props.user co dang nhap hay chua de dieu huong phu hop
-- (87)
+- (87, 88) Credict card section, rule of billing, Khong nhap va luu so the dang tho, luon su dung api ben thu 3, o day la stripe
+- (89) Flow payment bang stripe
+- (90) test cua Stripe cho ta su dung fake credit card, cai dat plugin stripe checkout react \*\*\*
+- (91) Su dung cap Api keys cua stripe, them stripePublishableKeys vs stripeSecretKey vao configs/dev.js vs prod.js; config keys tren heroku. Tat ca cac config khong duoc su dung tren front end, trong dev ta van can 1 folder config o client, luu y su khac nhau giua import vs require trong keys.js o backend vs frontend. O front end ta khong con set logic ve moi truong production hay dev dc nua.
+- (92) SU DUNG KEY O FRONT END REACT create react app environment variables git hub, --> adding custom environment variable, de su dung env o front ta tao 2 file .env.development vs .env.production trong client, trong 2 file tren nhap bien REACT_APP_STRIPE_KEY luu y bien phai bat dau bang REACT_APP... \*\*\*
+- (93) React app stripe checkout (github read) component, tao component Payment.js trong src. Set cac thuoc tinh amount don vi nho nhat la cent \$; token : dc gui ve tru stripe.com, stripekey = {REACT_APP_STRIPE_KEY}
+  import Payments vao Headers.
+- (94) Chinh sua hien thi trong Header
+- (95) Chinh sua nut Payment
+- (96) Add Credits vao user account (Figure 003), tao mot action moi HandleToken trong file action/index.js, thuc hien post request den server.
+- (97) Goi action moi them vao Payments.js bang connect redux.
+- (98) Tao api/stripe trong file moi billingRoutes.js cua routes. Goi route vao main index.js
+- (99) Chinh sua file billingRoutes.js, install stripe api vao server side , stripe.com/docs/api/node
+- Cai dat body Parse de giup lay info tu api dung cho post request
+- (100) check api/stripe, su dung stripe api docs, stripe charge create, set amount, currency, discription, source
+- (101) Hoan thien api/stripe
+- (102) Them credit vao model user (them tien vao tai khoan), req.user.credits +=5 tu dong thuc thi do da goi passport initialize
+- (103) Thiet lap dieu kien phai login roi moi duoc nap credits, req.user la thong tin khi dang nhap roi dc passport tu dong lay, if (!req.user) dieu kien nay se dc dung lai nhieu lan do do nen tach ra mot vi tri de tien goi
+- (104) Tao folder middlewares de chua tat ca cac middlewares, tao file requireLogin.js va su dung trong route can den
+- (106) Them phan credit dang co vao trong header
+- (107) Update header credits ngay sau khi nap them tien do token da dc luu
+- (108) Deploy len heroku, su dung npm run build de ghep client vao server backend \*\*\*, lam sao de chay route tao react router tren server, giai phap la truyen no qua index.html de sau do di toi main.js va vao react
+- (110) 3 cach de deploy, cach 1 truc tiep commit build project, cach 2 push len herouku va heroku tu cai dat all packages/dependencies (kho cho heroku cai dat tat ca cac dependencies nay va cung nang),
+- Cach 3 Push to CI Server, CI Server co the run, test tat ca codebase tai len git, Ci commit and build client va deploy len heroku.
+- Circle CI
+- 111 chon cach 2, --> heroku customize build process, config lai script trong package.json, heroku-postbuild chi install tai client
